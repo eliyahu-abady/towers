@@ -42,15 +42,46 @@
 }
 
 .ring{
-  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  opacity: 0.7;
+  margin: 0px;
+  border-radius: 15px;
 }
 
 .column{
   display: flex;
   flex-direction: column;
+  justify-content: end;
   align-items: center;
-  margin: 200px, 50px, 0px, 50px;
-  margin: 50px;
+  position: relative;
+  background-color: white;
+  height: 350px;
+  width: 200px;
+  margin: 10px 50px;
+  border: 1px solid white;
+  padding: 0px;
+}
+.column:hover{
+  border: 1px solid black;
+}
+.stick{
+  position: absolute;
+  bottom: 0px;
+  height: 300px;
+  width: 30px;
+  background-color: black;
+}
+
+.lifting{
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  margin: auto;
 }
 
 .game{
