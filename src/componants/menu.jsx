@@ -1,12 +1,11 @@
-function Menu() {
+function Menu({screen}) {
     return(
         <>
             <h1 className="title">towers of hanoi</h1>
-
             <div className="menu">
-                <button>game</button>
-                <button>about</button>
-                <button>records</button>
+                <button onClick={() => screen("game")}>game</button>
+                <button onClick={() => screen("about")}>about</button>
+                <button onClick={() => screen("records")}>records</button>
             </div>
         </>
     )
