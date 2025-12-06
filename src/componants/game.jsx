@@ -3,30 +3,42 @@ import { useState, useEffect } from "react"
 function Game() {
   const [dataGame, setDataGame] = useState([[1],[],[]])
   const [lifting, setLifting] = useState(null)
-  const [level, setLevel] = useState(0)
+  const [level, setLevel] = useState(1)
 
-  const handleClickColumn = (index) => {
-    if(lifting) {
-      if(lifting < dataGame[index][0] || dataGame[index].length === 0) {
+  const lift = (index) => {
+    if(dataGame[index].length === 0)
+      return
+    const ring = dataGame[index][0]
+    setLifting(ring)
+    setDataGame((prev) => {
+      const newData = [...prev]
+      newData[index] = prev[index].slice(1)
+      return newData
+    })
+}
+
+  const place = (index) => {
+    if(lifting < dataGame[index][0] || dataGame[index].length === 0) {
         setDataGame((prev) => {
           const newData = [...prev]
           newData[index] = [lifting, ...prev[index]]
           return newData
         })
         setLifting(null)
-      }
-    } else {
-    const ring = dataGame[index][0]
-    const newData = [...dataGame]
-    newData[index] = dataGame[index].slice(1)
-    setLifting(ring)
-    setDataGame(newData)
-  }}
+    }
+  }
+
+  const handleClickColumn = (index) => {
+    if(index>2 || index<0)
+      return
+    if(lifting) {place(index)}
+    else {lift(index)}
+  }
   
   useEffect(() => {
     const handleKeyDown = (event) => {
-      const number = event.key-1
-      handleClickColumn(number)
+      const key = parseInt(event.key-1)
+      handleClickColumn(key)
     } 
 
     window.addEventListener("keydown", handleKeyDown)
@@ -36,23 +48,16 @@ function Game() {
   }, [dataGame])
 
   useEffect(() => {
-    if(upLevel())
-      setLevel(prev => prev+1)
-  }, [dataGame])
-
-  useEffect(() => {
-    if(dataGame[0].length === 0) {
+    if(upLevel()) {
+      const newLevel = level+1
+      setLevel(newLevel)
       setDataGame((prev) => {
         const newData = [...prev]
-        newData[0] = [level]
+        const targetIndex = dataGame[0].length === 0 ? 0 : 1
+        newData [targetIndex] = [newLevel]
         return newData
-      })} else {
-        setDataGame((prev) => {
-        const newData = [...prev]
-        newData[1] = [level]
-        return newData
-      })}
-  }, [level])
+      })
+  }}, [dataGame])
 
   function Ring({level}) {
     return(
@@ -62,11 +67,11 @@ function Game() {
     )
   }
 
-  function Column({array, index, color}) {
+  function Column({arrayData, index, color}) {
     return(
         <button className='column' onClick={() => handleClickColumn(index)}>
           <div className='stick' style={{backgroundColor: color}}></div>
-          {array.map((ring, index) => (
+          {arrayData.map((ring, index) => (
             <Ring key={index} level={ring} />
           ))}
         </button>
@@ -80,7 +85,7 @@ function Game() {
       <div className='game'>
         {
           Array(3).fill(null).map((_, index) => (
-            <Column key={index} array={dataGame[index]} index={index} color={"red"}/>
+            <Column key={index} arrayData={dataGame[index]} index={index} color={"red"}/>
           ))
         }
       </div>
