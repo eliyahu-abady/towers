@@ -1,10 +1,29 @@
 import { useState, useEffect } from "react"
 
+function Ring({level}) {
+  return(
+    <div className='ring' style={{height: 20+level*4, width: 100+level*20}}>
+      <p className='number'>{level}</p>
+    </div>
+  )
+}
+function Column({arrayData, index, color, onColumnClick}) {
+  return(
+      <button className='column' onClick={() => onColumnClick(index)}>
+        <div className='stick' style={{backgroundColor: color}}></div>
+        {arrayData.map((ring, index) => (
+          <Ring key={index} level={ring} />
+        ))}
+      </button>
+  )
+}
+
 function Game() {
   const [dataGame, setDataGame] = useState([[1],[],[]])
   const [lifting, setLifting] = useState(null)
   const [level, setLevel] = useState(1)
   const [timer, setTimer] = useState(0)
+  const [duration, setDuration] = useState([])
 
   const lift = (index) => {
     if(dataGame[index].length === 0)
@@ -57,6 +76,7 @@ function Game() {
         newData[targetIndex] = [newLevel]
         return newData
       })
+      setDuration([...duration, timer])
   }}, [dataGame])
 
   useEffect(() => {
@@ -66,28 +86,9 @@ function Game() {
     return () => {
       clearInterval(intervalId)
     }
-  })
+  }, [])
 
-  function Ring({level}) {
-    return(
-      <div className='ring' style={{height: 20+level*4, width: 100+level*20}}>
-        <p className='number'>{level}</p>
-      </div>
-    )
-  }
-
-  function Column({arrayData, index, color}) {
-    return(
-        <button className='column' onClick={() => handleClickColumn(index)}>
-          <div className='stick' style={{backgroundColor: color}}></div>
-          {arrayData.map((ring, index) => (
-            <Ring key={index} level={ring} />
-          ))}
-        </button>
-    )
-  }
-
-  function displayNum(num) {
+  const displayNum = (num) => {
     const second = Math.floor(num/100)
     const hundredths = String(num % 100).padStart(2, "0")
     return (
@@ -103,13 +104,16 @@ function Game() {
         <div className='columns'>
           {
             Array(3).fill(null).map((_, index) => (
-              <Column key={index} arrayData={dataGame[index]} index={index} color={"red"}/>
+              <Column key={index} arrayData={dataGame[index]} index={index} color={"red"} onColumnClick={handleClickColumn}/>
             ))
           }
         </div>
       </div>
-      <div id="wrap-timer">
+      <div className="wraptimer">
           <p className="timer">{displayNum(timer)}</p>
+          {duration.map((time) =>
+            <p>{displayNum(time)}</p>
+          )}
       </div>
     </div>
   )

@@ -72,12 +72,24 @@
 
 /*game*/
 
+.cont{
+  display: flex;
+}
+
+.wraptimer{
+  width: 200px;
+}
+
+.timer{
+  font-size: 50px;
+}
+
 .ring{
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: black;
-  color: antiquewhite;
+  color: white;
   opacity: 0.7;
   margin: 0px;
   border-radius: 15px;
