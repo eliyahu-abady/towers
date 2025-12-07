@@ -4,6 +4,7 @@ function Game() {
   const [dataGame, setDataGame] = useState([[1],[],[]])
   const [lifting, setLifting] = useState(null)
   const [level, setLevel] = useState(1)
+  const [timer, setTimer] = useState(0)
 
   const lift = (index) => {
     if(dataGame[index].length === 0)
@@ -40,7 +41,6 @@ function Game() {
       const key = parseInt(event.key-1)
       handleClickColumn(key)
     } 
-
     window.addEventListener("keydown", handleKeyDown)
     return() => {
       window.removeEventListener("keydown", handleKeyDown)
@@ -54,10 +54,19 @@ function Game() {
       setDataGame((prev) => {
         const newData = [...prev]
         const targetIndex = dataGame[0].length === 0 ? 0 : 1
-        newData [targetIndex] = [newLevel]
+        newData[targetIndex] = [newLevel]
         return newData
       })
   }}, [dataGame])
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTimer((prev) => prev+1)
+    }, 10);
+    return () => {
+      clearInterval(intervalId)
+    }
+  })
 
   function Ring({level}) {
     return(
@@ -78,18 +87,31 @@ function Game() {
     )
   }
 
+  function displayNum(num) {
+    const second = Math.floor(num/100)
+    const hundredths = String(num % 100).padStart(2, "0")
+    return (
+      <p>{second}.{hundredths}</p>
+    )
+  }
+
   return (
-    <>
-      <h1>towers of hanoi</h1>
-      <div className='lifting'><div>{lifting && <Ring level={lifting}/>}</div></div>
-      <div className='game'>
-        {
-          Array(3).fill(null).map((_, index) => (
-            <Column key={index} arrayData={dataGame[index]} index={index} color={"red"}/>
-          ))
-        }
+    <div className="cont">
+      <div className="cont-game">
+        <h1>towers of hanoi</h1>
+        <div className='lifting'><div>{lifting && <Ring level={lifting}/>}</div></div>
+        <div className='columns'>
+          {
+            Array(3).fill(null).map((_, index) => (
+              <Column key={index} arrayData={dataGame[index]} index={index} color={"red"}/>
+            ))
+          }
+        </div>
       </div>
-    </>
+      <div id="wrap-timer">
+          <p className="timer">{displayNum(timer)}</p>
+      </div>
+    </div>
   )
 
 

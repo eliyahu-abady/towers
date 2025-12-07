@@ -116,7 +116,7 @@
   margin: auto;
 }
 
-.game{
+.columns{
   display: flex;
   justify-content: center;
 }
