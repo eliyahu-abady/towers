@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { useAuth } from "./context"
 
 function Ring({level}) {
   return(
@@ -110,9 +111,9 @@ function Game() {
         </div>
       </div>
       <div className="wraptimer">
-          <p className="timer">{displayNum(timer)}</p>
-          {duration.map((time) =>
-            <p>{displayNum(time)}</p>
+          <div className="timer">{displayNum(timer)}</div>
+          {duration.map((time, index) =>
+            <div key={index}>{displayNum(time)}</div>
           )}
       </div>
     </div>

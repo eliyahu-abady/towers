@@ -6,6 +6,7 @@ function Menu({screen}) {
                 <button onClick={() => screen("game")}>game</button>
                 <button onClick={() => screen("about")}>about</button>
                 <button onClick={() => screen("records")}>records</button>
+                <button onClick={() => screen("sign")}>sign</button>
             </div>
         </>
     )
