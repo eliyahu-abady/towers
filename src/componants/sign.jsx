@@ -30,7 +30,6 @@ const Sign = () => {
                 
                 await setDoc(doc(db, "records", cred.user.uid), {
                     email: email,
-                    hiscore: 0
                 });
             } else {
                 await signInWithEmailAndPassword(auth, email, password);
