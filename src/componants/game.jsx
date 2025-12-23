@@ -1,4 +1,7 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext, useRef } from "react"
+import {db} from "./../config/firebase"
+import { useAuth } from "./context"
+import { doc, getDoc } from "firebase/firestore"
 
 function Ring({level}) {
   return(
@@ -24,6 +27,10 @@ function Game() {
   const [level, setLevel] = useState(1)
   const [timer, setTimer] = useState(0)
   const [duration, setDuration] = useState([])
+  const {user, loading, recordsRef, change, newRecord} = useAuth()
+
+  // if(loading)
+  //   return
 
   const lift = (index) => {
     if(dataGame[index].length === 0)
@@ -68,6 +75,8 @@ function Game() {
 
   useEffect(() => {
     if(upLevel()) {
+      if(user)
+        newRecord(level, timer)
       const newLevel = level+1
       setLevel(newLevel)
       setDataGame((prev) => {
@@ -77,6 +86,7 @@ function Game() {
         return newData
       })
       setDuration([...duration, timer])
+      setTimer(0)
   }}, [dataGame])
 
   useEffect(() => {
@@ -92,7 +102,7 @@ function Game() {
     const second = Math.floor(num/100)
     const hundredths = String(num % 100).padStart(2, "0")
     return (
-      <p>{second}.{hundredths}</p>
+      `${second}.${hundredths}`
     )
   }
 
@@ -110,9 +120,9 @@ function Game() {
         </div>
       </div>
       <div className="wraptimer">
-          <p className="timer">{displayNum(timer)}</p>
-          {duration.map((time) =>
-            <p>{displayNum(time)}</p>
+          <div className="timer">{displayNum(timer)}</div>
+          {duration.map((time, index) =>
+            <p key={index}>level {index}: {displayNum(time)}</p>
           )}
       </div>
     </div>
