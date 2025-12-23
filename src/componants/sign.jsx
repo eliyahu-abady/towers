@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-
-
-function App() {
-    return(
-        <button>signup/ signin</button>
-    )
-}
-=======
 import { db, auth } from "../config/firebase"
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -73,4 +64,3 @@ const Sign = () => {
 };
 
 export default Sign;
->>>>>>> 58f64c1ef296ff98a9fb11dffb76a01aff1aefa0
