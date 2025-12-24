@@ -1,20 +1,12 @@
 import { db, auth } from "../config/firebase"
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useState, useEffect, useContext } from 'react';
 import { useAuth } from "./context";
 
 const Sign = () => {
     const [error, setError] = useState("");
-    const [user, setUser] = useState(null)
-    const {change} = useAuth()
-
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-          setUser(user)
-          change(user)
-        })
-    }, [])
+    const {user} = useAuth()
     
     const handleAuth = async (event, type) => {
         event.preventDefault();
@@ -28,8 +20,9 @@ const Sign = () => {
             if (type === 'signup') {
                 const cred = await createUserWithEmailAndPassword(auth, email, password);
                 
-                await setDoc(doc(db, "records", cred.user.uid), {
+                await setDoc(doc(db, "users", cred.user.uid), {
                     email: email,
+                    records: {}
                 });
             } else {
                 await signInWithEmailAndPassword(auth, email, password);
@@ -40,25 +33,39 @@ const Sign = () => {
         }
     };
 
+    const toSignOut = async () => {
+        try {
+            await signOut(auth)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
-        <div id='sign'>
-            {error && <p style={{color: 'red'}}>{error}</p>}
+        <div>
+            <h4>hello {user ? user.email : ""} </h4>
+            <div id='sign'>
+                {error && <p style={{color: 'red'}}>{error}</p>}
             
-            <form onSubmit={(e) => handleAuth(e, 'signup')}>
-                <h3>Signup</h3>
-                <input name="email" type="email" placeholder="Email" required />
-                <input name="password" type="password" placeholder="Password" required />
-                <button type='submit'>Signup</button>
-            </form>
-
-            <hr />
-
-            <form onSubmit={(e) => handleAuth(e, 'signin')}>
-                <h3>Signin</h3>
-                <input name="email" type="email" placeholder="Email" required />
-                <input name="password" type="password" placeholder="Password" required />
-                <button type='submit'>Signin</button>
-            </form>
+                <form onSubmit={(e) => handleAuth(e, 'signup')}>
+                    <h3>Signup</h3>
+                    <input name="email" type="email" placeholder="Email" required />
+                    <input name="password" type="password" placeholder="Password" required />
+                    <button type='submit'>Signup</button>
+                </form>
+                <hr />
+                <form onSubmit={(e) => handleAuth(e, 'signin')}>
+                    <h3>Signin</h3>
+                    <input name="email" type="email" placeholder="Email" required />
+                    <input name="password" type="password" placeholder="Password" required />
+                    <button type='submit'>Signin</button>
+                </form>
+            </div>
+            <br />
+            <br />
+            <div>
+                <button onClick={toSignOut}>signout</button>
+            </div>
         </div>
     );
 };

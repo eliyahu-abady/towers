@@ -27,10 +27,7 @@ function Game() {
   const [level, setLevel] = useState(1)
   const [timer, setTimer] = useState(0)
   const [duration, setDuration] = useState([])
-  const {user, loading, recordsRef, change, newRecord} = useAuth()
-
-  // if(loading)
-  //   return
+  const {user, loading, records, change, newRecord} = useAuth()
 
   const lift = (index) => {
     if(dataGame[index].length === 0)
@@ -56,7 +53,7 @@ function Game() {
   }
 
   const handleClickColumn = (index) => {
-    if(index>2 || index<0)
+    if(![0,1,2].includes(index))
       return
     if(lifting) {place(index)}
     else {lift(index)}
@@ -105,6 +102,9 @@ function Game() {
       `${second}.${hundredths}`
     )
   }
+
+  if(loading)
+    return(<p>loading...</p>)
 
   return (
     <div className="cont">
