@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext, useRef } from "react"
 import {db} from "./../config/firebase"
-import { useAuth } from "./context"
-import { doc, getDoc } from "firebase/firestore"
+import { useAuth } from "./authcontext"
+import { doc, setDoc } from "firebase/firestore"
+import { fetchrecords } from "../firestoremanager"
 
 function Ring({level}) {
   return(
@@ -27,7 +28,8 @@ function Game() {
   const [level, setLevel] = useState(1)
   const [timer, setTimer] = useState(0)
   const [duration, setDuration] = useState([])
-  const {user, loading, records, change, newRecord} = useAuth()
+  const [records, setRecords] = useState()
+  const {user, loading, change} = useAuth()
 
   const lift = (index) => {
     if(dataGame[index].length === 0)
@@ -95,6 +97,32 @@ function Game() {
     }
   }, [])
 
+  useEffect(() => {
+        if(!user) {
+            setRecords({})
+            return
+        }
+
+        const fetch = async () => {
+          const data = await fetchrecords(user.uid)
+          setRecords(data)
+        }
+        fetch()
+    }, [user])
+
+  const newRecord = async (level, newRecord) => {
+          if(!user) return
+          const docRef = doc(db, "users", user.uid)
+          const currentRecord = records?.[level]
+          if(currentRecord > newRecord || currentRecord === undefined) {
+              try {
+                  await setDoc(docRef, {records: {[level]: newRecord}}, {merge: true})
+              } catch (error) {
+                  console.log(error)
+              }
+          }  
+      }
+
   const displayNum = (num) => {
     const second = Math.floor(num/100)
     const hundredths = String(num % 100).padStart(2, "0")
@@ -102,9 +130,6 @@ function Game() {
       `${second}.${hundredths}`
     )
   }
-
-  if(loading)
-    return(<p>loading...</p>)
 
   return (
     <div className="cont">

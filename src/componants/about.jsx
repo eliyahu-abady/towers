@@ -1,4 +1,4 @@
-import { useAuth } from "./context"
+import { useAuth } from "./authcontext"
 
 function About() {
     const {user} = useAuth()

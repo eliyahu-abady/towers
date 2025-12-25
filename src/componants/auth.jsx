@@ -1,10 +1,10 @@
 import { db, auth } from "../config/firebase"
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { useState, useEffect, useContext } from 'react';
-import { useAuth } from "./context";
+import { useState } from 'react';
+import { useAuth } from "./authcontext";
 
-const Sign = () => {
+const Auth = () => {
     const [error, setError] = useState("");
     const {user} = useAuth()
     
@@ -70,4 +70,4 @@ const Sign = () => {
     );
 };
 
-export default Sign;
+export default Auth;
