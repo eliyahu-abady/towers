@@ -1,5 +1,5 @@
-import { doc, getDoc, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { doc, onSnapshot, setDoc } from "firebase/firestore";
+import { createContext, useContext, useEffect, useState } from "react";
 import { auth, db } from "../config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -24,9 +24,9 @@ export const AuthProvider = ({children}) => {
             return
         }
 
-        const docRefId = doc(db, "users", user.uid)
+        const docRef = doc(db, "users", user.uid)
 
-        const unsubscribe = onSnapshot( docRefId, (docSnap) => {
+        const unsubscribe = onSnapshot( docRef, (docSnap) => {
             if(docSnap.exists) {
                 setRecords(docSnap.data().records || {})
             }
@@ -36,11 +36,11 @@ export const AuthProvider = ({children}) => {
 
     const newRecord = async (level, newRecord) => {
         if(!user) return
-        const docRefId = doc(db, "users", user.uid)
+        const docRef = doc(db, "users", user.uid)
         const currentRecord = records?.[level]
         if(currentRecord > newRecord || currentRecord === undefined) {
             try {
-                await setDoc(docRefId, {records: {[level]: newRecord}}, {merge: true})
+                await setDoc(docRef, {records: {[level]: newRecord}}, {merge: true})
             } catch (error) {
                 console.log(error)
             }

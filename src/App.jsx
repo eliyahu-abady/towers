@@ -10,7 +10,7 @@ import './App.css'
 
 
 function App() {
-  const [screen, setScreen] = useState("game")
+  const [screen, setScreen] = useState("menu")
 
   const SCREEN = {
     menu: <Menu screen={(page) => setScreen(page)}/>,
