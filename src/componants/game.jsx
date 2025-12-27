@@ -156,6 +156,13 @@ function ActiveGame({user, initialRecords}) {
 
   return (
     <div className="cont">
+
+      <div className="wraptimer">
+        <div className="timer">{displayNum(timer)}</div>
+        {duration.map((time, index) =>
+          <p key={index}>level {index}: {displayNum(time)}</p>
+        )}
+      </div>
       <div className="cont-game">
         <h1>towers of hanoi</h1>
         <div className='lifting'><div>{lifting && <Ring level={lifting}/>}</div></div>
@@ -166,12 +173,6 @@ function ActiveGame({user, initialRecords}) {
             ))
           }
         </div>
-      </div>
-      <div className="wraptimer">
-          <div className="timer">{displayNum(timer)}</div>
-          {duration.map((time, index) =>
-            <p key={index}>level {index}: {displayNum(time)}</p>
-          )}
       </div>
     </div>
   )
