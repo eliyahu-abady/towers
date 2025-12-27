@@ -25,7 +25,7 @@ function Records() {
     if(!user)
         return(<p style={{fontSize: 40}}>signin to save records</p>)
         if(!records)
-            return(<p>loading...</p>)
+            return(<p className="loading">loading...</p>)
     return(
         <>
             <h1>hello {user ? user.email : ""}</h1>

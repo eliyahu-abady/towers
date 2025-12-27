@@ -1,8 +1,44 @@
-import { useState, useEffect, useContext, useRef } from "react"
+import { useState, useEffect } from "react"
 import {db} from "./../config/firebase"
 import { useAuth } from "./authcontext"
 import { doc, setDoc } from "firebase/firestore"
 import { fetchrecords } from "../firestoremanager"
+
+
+
+function Game() {
+  const [records, setRecords] = useState()
+  const [loading, setLoading] = useState(true)
+  const {user} = useAuth()
+
+  useEffect(() => {
+   
+    if(!user) {
+        setRecords({})
+        setLoading(false)
+        return
+    }
+
+    const fetch = async () => {
+      try {
+        const data = await fetchrecords(user.uid)
+        setRecords(data)
+      } catch(e) {
+        console.error(e)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetch()
+  }, [user])
+
+  if (loading) return (<p className="loading">loading...</p>)
+
+ 
+ 
+  return <ActiveGame user={user} initialRecords={records} />
+}
+
 
 function Ring({level}) {
   return(
@@ -11,25 +47,25 @@ function Ring({level}) {
     </div>
   )
 }
-function Column({arrayData, index, color, onColumnClick}) {
+
+function Column({arrayData, index: indexColumn, color, onColumnClick}) {
   return(
-      <button className='column' onClick={() => onColumnClick(index)}>
+      <button className='column' onClick={() => onColumnClick(indexColumn)}>
         <div className='stick' style={{backgroundColor: color}}></div>
-        {arrayData.map((ring, index) => (
-          <Ring key={index} level={ring} />
+        {arrayData.map((ring, indexRing) => (
+          <Ring key={indexRing} level={ring} />
         ))}
       </button>
   )
 }
 
-function Game() {
+
+function ActiveGame({user, initialRecords}) {
   const [dataGame, setDataGame] = useState([[1],[],[]])
   const [lifting, setLifting] = useState(null)
   const [level, setLevel] = useState(1)
   const [timer, setTimer] = useState(0)
   const [duration, setDuration] = useState([])
-  const [records, setRecords] = useState()
-  const {user, loading, change} = useAuth()
 
   const lift = (index) => {
     if(dataGame[index].length === 0)
@@ -59,6 +95,19 @@ function Game() {
       return
     if(lifting) {place(index)}
     else {lift(index)}
+  }
+
+  const newRecord = async (level, newRecord) => {
+    if(!user) return
+    const docRef = doc(db, "users", user.uid)
+    const currentRecord = initialRecords?.[level]
+    if(currentRecord > newRecord || currentRecord === undefined) {
+        try {
+            await setDoc(docRef, {records: {[level]: newRecord}}, {merge: true})
+        } catch (error) {
+            console.log(error)
+        }
+    }  
   }
   
   useEffect(() => {
@@ -96,32 +145,6 @@ function Game() {
       clearInterval(intervalId)
     }
   }, [])
-
-  useEffect(() => {
-        if(!user) {
-            setRecords({})
-            return
-        }
-
-        const fetch = async () => {
-          const data = await fetchrecords(user.uid)
-          setRecords(data)
-        }
-        fetch()
-    }, [user])
-
-  const newRecord = async (level, newRecord) => {
-          if(!user) return
-          const docRef = doc(db, "users", user.uid)
-          const currentRecord = records?.[level]
-          if(currentRecord > newRecord || currentRecord === undefined) {
-              try {
-                  await setDoc(docRef, {records: {[level]: newRecord}}, {merge: true})
-              } catch (error) {
-                  console.log(error)
-              }
-          }  
-      }
 
   const displayNum = (num) => {
     const second = Math.floor(num/100)
