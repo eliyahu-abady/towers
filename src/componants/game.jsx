@@ -97,17 +97,22 @@ function ActiveGame({user, initialRecords}) {
     else {lift(index)}
   }
 
-  const newRecord = async (level, newRecord) => {
+  const levelComplated = async (level, duration) => {
     if(!user) return
     const docRef = doc(db, "users", user.uid)
     const currentRecord = initialRecords?.[level]
-    if(currentRecord > newRecord || currentRecord === undefined) {
+    if(currentRecord > duration || currentRecord === undefined) {
         try {
-            await setDoc(docRef, {records: {[level]: newRecord}}, {merge: true})
+            if(user) {
+              await setDoc(docRef, {records: {[level]: duration}}, {merge: true})
+            }
+            setDuration((prev) => [...prev, {timer: timer, recordBroken: true}])
         } catch (error) {
             console.log(error)
         }
-    }  
+    } else {
+      setDuration((prev) => [...prev, {timer: timer, recordBroken: false}])
+    }
   }
   
   useEffect(() => {
@@ -123,8 +128,7 @@ function ActiveGame({user, initialRecords}) {
 
   useEffect(() => {
     if(upLevel()) {
-      if(user)
-        newRecord(level, timer)
+      levelComplated(level, timer)
       const newLevel = level+1
       setLevel(newLevel)
       setDataGame((prev) => {
@@ -133,7 +137,7 @@ function ActiveGame({user, initialRecords}) {
         newData[targetIndex] = [newLevel]
         return newData
       })
-      setDuration([...duration, timer])
+      console.log(duration)
       setTimer(0)
   }}, [dataGame])
 
@@ -159,8 +163,8 @@ function ActiveGame({user, initialRecords}) {
 
       <div className="wraptimer">
         <div className="timer">{displayNum(timer)}</div>
-        {duration.map((time, index) =>
-          <p key={index}>level {index}: {displayNum(time)}</p>
+        {duration.map((record, index) =>
+          <div key={index}>level {index}: {displayNum(record.timer)} {record.recordBroken && <span>sb</span>}</div>
         )}
       </div>
       <div className="cont-game">
