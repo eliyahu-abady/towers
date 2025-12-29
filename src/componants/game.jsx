@@ -3,6 +3,7 @@ import {db} from "./../config/firebase"
 import { useAuth } from "./authcontext"
 import { doc, setDoc } from "firebase/firestore"
 import { fetchrecords } from "../firestoremanager"
+import medal from "./icons/medal.svg"
 
 
 
@@ -61,7 +62,7 @@ function Column({arrayData, index: indexColumn, color, onColumnClick}) {
 
 
 function ActiveGame({user, initialRecords}) {
-  const [dataGame, setDataGame] = useState([[1],[],[]])
+  const [dataGame, setDataGame] = useState([[1],[2],[]])
   const [lifting, setLifting] = useState(null)
   const [level, setLevel] = useState(1)
   const [timer, setTimer] = useState(0)
@@ -106,12 +107,14 @@ function ActiveGame({user, initialRecords}) {
             if(user) {
               await setDoc(docRef, {records: {[level]: duration}}, {merge: true})
             }
-            setDuration((prev) => [...prev, {timer: timer, recordBroken: true}])
+            setDuration((prev) => [...prev, {level, timer, recordBroken: true}])
+            console.log( "A", duration)
         } catch (error) {
             console.log(error)
         }
     } else {
-      setDuration((prev) => [...prev, {timer: timer, recordBroken: false}])
+      setDuration((prev) => [...prev, {level, timer, recordBroken: false}])
+      console.log( "B", duration)
     }
   }
   
@@ -134,10 +137,9 @@ function ActiveGame({user, initialRecords}) {
       setDataGame((prev) => {
         const newData = [...prev]
         const targetIndex = dataGame[0].length === 0 ? 0 : 1
-        newData[targetIndex] = [newLevel]
+        newData[targetIndex] = [newLevel+1]
         return newData
       })
-      console.log(duration)
       setTimer(0)
   }}, [dataGame])
 
@@ -160,12 +162,21 @@ function ActiveGame({user, initialRecords}) {
 
   return (
     <div className="cont">
-
       <div className="wraptimer">
         <div className="timer">{displayNum(timer)}</div>
-        {duration.map((record, index) =>
-          <div key={index}>level {index}: {displayNum(record.timer)} {record.recordBroken && <span>sb</span>}</div>
-        )}
+        <table id="tabletimer">
+          <tbody>
+            {
+              duration.map((record, index) => 
+                <tr key={index}>
+                  <th>level {record.level}:</th>
+                  <td>{displayNum(record.timer)}</td>
+                  <td>{record.recordBroken && <img src={medal} alt="" />}</td>
+                </tr>
+              )
+            }
+          </tbody>
+        </table>
       </div>
       <div className="cont-game">
         <h1>towers of hanoi</h1>
