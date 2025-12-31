@@ -99,22 +99,21 @@ function ActiveGame({user, initialRecords}) {
   }
 
   const levelComplated = async (level, duration) => {
-    if(!user) return
+    if(!user) {
+      setDuration((prev) => [...prev, {level, timer, recordBroken: false}])
+      return
+    }
     const docRef = doc(db, "users", user.uid)
     const currentRecord = initialRecords?.[level]
     if(currentRecord > duration || currentRecord === undefined) {
         try {
-            if(user) {
-              await setDoc(docRef, {records: {[level]: duration}}, {merge: true})
-            }
+            await setDoc(docRef, {records: {[level]: duration}}, {merge: true})
             setDuration((prev) => [...prev, {level, timer, recordBroken: true}])
-            console.log( "A", duration)
         } catch (error) {
             console.log(error)
         }
     } else {
       setDuration((prev) => [...prev, {level, timer, recordBroken: false}])
-      console.log( "B", duration)
     }
   }
   
