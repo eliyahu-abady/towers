@@ -76,6 +76,10 @@
   border: 1px solid black;
 }
 
+.menu li{
+  list-style: none;
+}
+
 /*game*/
 
 .cont{
