@@ -12,4 +12,9 @@ function Menu({setScreen}) {
     )
 }
 
+{/* <Link to={"/Game"}><li><button>game</button></li></Link>
+<Link to={"/About"}><li><button>about</button></li></Link>
+<Link to={"/Records"}><li><button>records</button></li></Link>
+<Link to={"/Auth"}><li><button>sing</button></li></Link> */}
+
 export default Menu

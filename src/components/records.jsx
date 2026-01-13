@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "./authcontext"
-import { doc, getDoc, setDoc } from "firebase/firestore"
+import { doc, setDoc } from "firebase/firestore"
 import { db } from "../config/firebase"
 import {fetchrecords} from "../firestoremanager"
 
