@@ -11,7 +11,7 @@ function Menu({ setScreen }) {
           <li key={item} className="w-full list-none">
             <button
               onClick={() => setScreen(item === "auth" ? "auth" : item)}
-              className="h-[60px] w-full rounded-[50px] my-4 border border-black bg-transparent hover:bg-black hover:text-white transition-all text-lg font-medium"
+              className="h-[60px] w-full rounded-[50px] my-4 border border-black bg-white bg-transparent hover:bg-black hover:text-white transition-all text-lg font-medium cursor-pointer"
             >
               {item === "auth" ? "sign" : item}
             </button>
