@@ -29,12 +29,19 @@ function App() {
 
   return (
     <AuthProvider>
-      <div className="container">{renderPage()}</div>
-      {screen !== "menu" ? (
-        <button className="forMenu" onClick={() => setScreen("menu")}>
-          menu
-        </button>
-      ) : null}
+      <div className="min-h-screen bg-[#faebd7] text-[#242424] flex flex-col items-center justify-center w-full p-4 md:p-8 font-sans transition-colors duration-300">
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+          {renderPage()}
+        </div>
+        {screen !== "menu" ? (
+          <button
+            className="mt-24 px-6 py-2 bg-[#1a1a1a] text-white rounded-lg border border-transparent hover:border-indigo-500 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-500/50"
+            onClick={() => setScreen("menu")}
+          >
+            menu
+          </button>
+        ) : null}
+      </div>
     </AuthProvider>
   );
 }

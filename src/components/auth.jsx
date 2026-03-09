@@ -49,15 +49,31 @@ const Auth = () => {
     }
   };
 
-  return (
-    <div>
-      <h4>hello {user ? user.email : ""} </h4>
-      <div id="sign">
-        {error && <p style={{ color: "red" }}>{error}</p>}
+  // מחלקות משותפות לשדות קלט וכפתורים
+  const inputStyles =
+    "w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:border-[#646cff] focus:ring-1 focus:ring-[#646cff] bg-white text-black";
+  const btnStyles =
+    "w-full px-4 py-2 bg-[#1a1a1a] text-white rounded hover:bg-gray-800 transition-colors border border-transparent";
 
-        <form onSubmit={(e) => handleAuth(e, "signup")}>
-          <h3>Signup</h3>
+  return (
+    <div className="flex flex-col items-center mt-10 w-full max-w-sm mx-auto">
+      <h4 className="text-xl mb-6 font-medium">
+        hello {user ? user.email : "guest"}
+      </h4>
+
+      <div className="w-full bg-white/40 p-6 rounded-xl shadow-sm border border-black/10">
+        {error && (
+          <p className="text-red-500 mb-4 bg-red-100 p-2 rounded text-sm text-center">
+            {error}
+          </p>
+        )}
+
+        <form onSubmit={(e) => handleAuth(e, "signup")} className="mb-6">
+          <h3 className="text-lg font-bold mb-4 border-b border-black/10 pb-2">
+            Signup
+          </h3>
           <input
+            className={inputStyles}
             name="email"
             type="email"
             placeholder="Email"
@@ -65,18 +81,26 @@ const Auth = () => {
             required
           />
           <input
+            className={inputStyles}
             name="password"
             type="password"
             placeholder="Password"
             autoComplete="new-password"
             required
           />
-          <button type="submit">Signup</button>
+          <button type="submit" className={btnStyles}>
+            Signup
+          </button>
         </form>
-        <hr />
+
+        <hr className="border-black/10 my-6" />
+
         <form onSubmit={(e) => handleAuth(e, "signin")}>
-          <h3>Signin</h3>
+          <h3 className="text-lg font-bold mb-4 border-b border-black/10 pb-2">
+            Signin
+          </h3>
           <input
+            className={inputStyles}
             name="email"
             type="email"
             placeholder="Email"
@@ -84,19 +108,26 @@ const Auth = () => {
             required
           />
           <input
+            className={inputStyles}
             name="password"
             type="password"
             placeholder="Password"
             autoComplete="current-password"
             required
           />
-          <button type="submit">Signin</button>
+          <button type="submit" className={btnStyles}>
+            Signin
+          </button>
         </form>
       </div>
-      <br />
-      <br />
-      <div>
-        <button onClick={toSignOut}>signout</button>
+
+      <div className="mt-8 w-full">
+        <button
+          onClick={toSignOut}
+          className="w-full px-4 py-2 bg-transparent text-red-600 border border-red-200 rounded hover:bg-red-50 hover:border-red-300 transition-colors"
+        >
+          signout
+        </button>
       </div>
     </div>
   );
