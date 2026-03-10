@@ -1,6 +1,6 @@
 import Menu from "./components/menu";
 import Game from "./components/game";
-import About from "./components/about";
+import Instructions from "./components/Instructions";
 import Records from "./components/records";
 import Auth from "./components/auth";
 import { AuthProvider } from "./components/authcontext";
@@ -16,14 +16,14 @@ function App() {
         return <Menu setScreen={(page) => setScreen(page)} />;
       case "game":
         return <Game />;
-      case "about":
-        return <About />;
+      case "Instructions":
+        return <Instructions />;
       case "records":
         return <Records />;
       case "auth":
         return <Auth />;
       default:
-        return <div>Page not found</div>;
+        return <div>הדף לא נמצא</div>;
     }
   };
 
@@ -38,7 +38,7 @@ function App() {
             className="mt-24 px-6 py-2 bg-[#1a1a1a] text-white rounded-lg border border-transparent hover:border-indigo-500 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-500/50 cursor-pointer"
             onClick={() => setScreen("menu")}
           >
-            menu
+            ראשי
           </button>
         ) : null}
       </div>

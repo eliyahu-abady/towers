@@ -34,23 +34,23 @@ function Records() {
     fetch();
   }, [user]);
 
-  if (!user) return <p className="text-[40px] mt-20">signin to save records</p>;
-  if (!records) return <p className="text-[40px] mt-20">loading...</p>;
+  if (!user) return <p className="text-[40px] mt-20">היכנס כדי לשמור שיאים</p>;
+  if (!records) return <p className="text-[40px] mt-20">טוען...</p>;
   if (Object.keys(records).length === 0)
-    return <p className="text-2xl mt-20">play to create records</p>;
+    return <p className="text-2xl mt-20">שחק כדי ליצור שיאים</p>;
 
   return (
     <div className="flex flex-col items-center mt-10 w-full max-w-lg mx-auto">
       <h1 className="text-3xl font-bold mb-2">
         hello {user ? user.email : ""}
       </h1>
-      <h2 className="text-2xl mb-8">records</h2>
+      <h2 className="text-2xl mb-8">שיאים</h2>
 
       <table className="w-full max-w-xs text-xl mb-10 mx-auto">
         <tbody>
           {Object.entries(records).map(([key, value]) => (
             <tr key={key} className="border-b border-black/10 last:border-0">
-              <th className="py-3 text-right pr-4 font-normal">level {key}:</th>
+              <th className="py-3 text-right pr-4 font-normal">רמה {key}:</th>
               <td className="py-3 text-left pl-4 font-mono">{value}</td>
             </tr>
           ))}
@@ -61,7 +61,7 @@ function Records() {
         onClick={() => resetRecords()}
         className="px-6 py-2 bg-red-100 text-red-600 border border-red-200 rounded hover:bg-red-200 transition-colors"
       >
-        reset records
+        אפס שיאים
       </button>
     </div>
   );

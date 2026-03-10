@@ -58,7 +58,7 @@ const Auth = () => {
   return (
     <div className="flex flex-col items-center mt-10 w-full max-w-sm mx-auto">
       <h4 className="text-xl mb-6 font-medium">
-        hello {user ? user.email : "guest"}
+        שלום {user ? user.email : "guest"}
       </h4>
 
       <div className="w-full bg-white/40 p-6 rounded-xl shadow-sm border border-black/10">
@@ -70,13 +70,13 @@ const Auth = () => {
 
         <form onSubmit={(e) => handleAuth(e, "signup")} className="mb-6">
           <h3 className="text-lg font-bold mb-4 border-b border-black/10 pb-2">
-            Signup
+            הרשמה
           </h3>
           <input
             className={inputStyles}
             name="email"
             type="email"
-            placeholder="Email"
+            placeholder="אימייל"
             autoComplete="new-email"
             required
           />
@@ -84,12 +84,12 @@ const Auth = () => {
             className={inputStyles}
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="סיסמה"
             autoComplete="new-password"
             required
           />
           <button type="submit" className={btnStyles}>
-            Signup
+            הירשם
           </button>
         </form>
 
@@ -97,13 +97,13 @@ const Auth = () => {
 
         <form onSubmit={(e) => handleAuth(e, "signin")}>
           <h3 className="text-lg font-bold mb-4 border-b border-black/10 pb-2">
-            Signin
+            התחברות
           </h3>
           <input
             className={inputStyles}
             name="email"
             type="email"
-            placeholder="Email"
+            placeholder="אימייל"
             autoComplete="current-email"
             required
           />
@@ -111,12 +111,12 @@ const Auth = () => {
             className={inputStyles}
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="סיסמה"
             autoComplete="current-password"
             required
           />
           <button type="submit" className={btnStyles}>
-            Signin
+            התחבר
           </button>
         </form>
       </div>
@@ -126,7 +126,7 @@ const Auth = () => {
           onClick={toSignOut}
           className="w-full px-4 py-2 bg-transparent text-red-600 border border-red-200 rounded hover:bg-red-50 hover:border-red-300 transition-colors"
         >
-          signout
+          התנתק
         </button>
       </div>
     </div>

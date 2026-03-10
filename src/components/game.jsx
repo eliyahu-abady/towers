@@ -30,7 +30,7 @@ function Game() {
     fetch();
   }, [user]);
 
-  if (loading) return <p className="text-4xl text-center mt-10">loading...</p>;
+  if (loading) return <p className="text-4xl text-center mt-10">טוען...</p>;
 
   return <ActiveGame user={user} initialRecords={records} />;
 }
@@ -183,7 +183,7 @@ function ActiveGame({ user, initialRecords }) {
           <tbody>
             {duration.map((record, index) => (
               <tr key={index}>
-                <th className="py-1 pr-2 font-normal">level {record.level}:</th>
+                <th className="py-1 pr-2 font-normal">רמה {record.level}:</th>
                 <td className="py-1 px-2">{displayNum(record.timer)}</td>
                 <td className="py-1 pl-2">
                   {record.recordBroken && (
@@ -206,7 +206,7 @@ function ActiveGame({ user, initialRecords }) {
         className="flex-1 flex flex-col items-center w-full order-1 lg:order-2"
       >
         <h1 className="text-4xl md:text-[3.2em] leading-[1.1] font-bold mb-8 text-center capitalize">
-          towers of hanoi
+          מגדלי האינוי
         </h1>
 
         {/* אזור הטבעת המורמת */}
