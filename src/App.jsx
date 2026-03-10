@@ -1,8 +1,8 @@
-import Menu from "./components/menu";
-import Game from "./components/game";
-import Instructions from "./components/Instructions";
-import Records from "./components/records";
-import Auth from "./components/auth";
+import Menu from "./components/pages/menu";
+import Game from "./components/pages/game";
+import Instructions from "./components/pages/Instructions";
+import Records from "./components/pages/records";
+import Auth from "./components/pages/auth";
 import { AuthProvider } from "./components/authcontext";
 import { useState } from "react";
 import "./App.css";
@@ -35,7 +35,7 @@ function App() {
         </div>
         {screen !== "menu" ? (
           <button
-            className="mt-24 px-6 py-2 bg-[#1a1a1a] text-white rounded-lg border border-transparent hover:border-indigo-500 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-500/50 cursor-pointer"
+            className="mt-24 px-6 py-2 bg-[#1a1a1a] text-white rounded-lg border-3 border-transparent hover:border-indigo-500 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-500/50 cursor-pointer"
             onClick={() => setScreen("menu")}
           >
             ראשי

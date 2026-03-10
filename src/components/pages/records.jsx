@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "./authcontext";
+import { useAuth } from "../authcontext";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../config/firebase";
-import { fetchrecords } from "../firestoremanager";
+import { db } from "../../config/firebase";
+import { fetchrecords } from "../../firestoremanager";
 
 function Records() {
   const [records, setRecords] = useState();
@@ -34,7 +34,8 @@ function Records() {
     fetch();
   }, [user]);
 
-  if (!user) return <p className="text-[40px] mt-20">היכנס כדי לשמור שיאים</p>;
+  if (!user)
+    return <p className="text-[40px] mt-20">היכנס כמשתמש על מנת לשמור שיאים</p>;
   if (!records) return <p className="text-[40px] mt-20">טוען...</p>;
   if (Object.keys(records).length === 0)
     return <p className="text-2xl mt-20">שחק כדי ליצור שיאים</p>;

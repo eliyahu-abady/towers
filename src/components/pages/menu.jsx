@@ -22,7 +22,7 @@ function Menu({ setScreen }) {
         <MenuItem page="game" name="משחק" setScreen={setScreen} />
         <MenuItem page="Instructions" name="הוראות" setScreen={setScreen} />
         <MenuItem page="records" name="שיאים" setScreen={setScreen} />
-        <MenuItem page="auth" name="רישום" setScreen={setScreen} />
+        <MenuItem page="auth" name="התחברות" setScreen={setScreen} />
       </ul>
     </div>
   );

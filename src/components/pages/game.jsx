@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { db } from "./../config/firebase";
-import { useAuth } from "./authcontext";
+import { db } from "../../config/firebase";
+import { useAuth } from "../authcontext";
 import { doc, setDoc } from "firebase/firestore";
-import { fetchrecords } from "../firestoremanager";
-import medal from "./icons/medal.svg";
+import { fetchrecords } from "../../firestoremanager";
+import medal from "../icons/medal.svg";
 
 function Game() {
   const [records, setRecords] = useState();
