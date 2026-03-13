@@ -199,7 +199,6 @@ const Auth = () => {
   if (user && !user.emailVerified) {
     return <ValidEmail />;
   }
-  console.log(user);
 
   return (
     <div className="flex flex-col items-center mt-10 w-full max-w-sm mx-auto">

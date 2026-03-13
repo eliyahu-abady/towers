@@ -38,8 +38,8 @@ function Game() {
 function Ring({ level }) {
   return (
     <div
-      className="flex items-center justify-center bg-black/70 text-white rounded-[15px] z-10 shrink-0"
-      style={{ height: 20 + level * 4, width: 100 + level * 20 }}
+      className="flex items-center justify-center bg-black/70 text-white rounded-[15px] w-[var(--lv)] md:w-[calc(var(--lv)*2)] z-10 shrink-0 aspect-[5/1]"
+      style={{ "--lv": `${50 + level * 10}px` }}
     >
       <p className="m-0">{level}</p>
     </div>
