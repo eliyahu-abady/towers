@@ -38,14 +38,13 @@ function Records() {
     return <p className="text-[40px] mt-20">היכנס כמשתמש על מנת לשמור שיאים</p>;
   if (!records) return <p className="text-[40px] mt-20">טוען...</p>;
   if (Object.keys(records).length === 0)
-    return <p className="text-2xl mt-20">שחק כדי ליצור שיאים</p>;
+    return <p className="text-[40px] mt-20">שחק כדי ליצור שיאים</p>;
 
   return (
     <div className="flex flex-col items-center mt-10 w-full max-w-lg mx-auto">
-      <h1 className="text-3xl font-bold mb-2">
-        hello {user ? user.email : ""}
+      <h1 className="text-3xl font-bold mb-10">
+        {user ? `השיאים של ${user.displayName}` : ""}
       </h1>
-      <h2 className="text-2xl mb-8">שיאים</h2>
 
       <table className="w-full max-w-xs text-xl mb-10 mx-auto">
         <tbody>

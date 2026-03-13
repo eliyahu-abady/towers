@@ -33,14 +33,15 @@ function App() {
         <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
           {renderPage()}
         </div>
-        {screen !== "menu" ? (
+        {screen !== "menu" && (
           <button
-            className="mt-24 px-6 py-2 bg-[#1a1a1a] text-white rounded-lg border-3 border-transparent hover:border-indigo-500 transition-colors focus:outline-none focus:ring-4 focus:ring-indigo-500/50 cursor-pointer"
+            className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gray-800 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/50 cursor-pointer"
             onClick={() => setScreen("menu")}
           >
+            <span className="text-xl leading-none">&rarr;</span>
             ראשי
           </button>
-        ) : null}
+        )}
       </div>
     </AuthProvider>
   );
