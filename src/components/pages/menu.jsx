@@ -14,7 +14,7 @@ function Menu({ setScreen }) {
     <div className="flex flex-col items-center w-full">
       <header className="mt-10">
         <h1 className="text-3xl font-bold uppercase border-b-4 border-black pb-2">
-          מגדלי האינוי
+          מגדלי האנוי
         </h1>
       </header>
 

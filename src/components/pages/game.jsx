@@ -206,7 +206,7 @@ function ActiveGame({ user, initialRecords }) {
         className="flex-1 flex flex-col items-center w-full order-1 lg:order-2"
       >
         <h1 className="text-4xl md:text-[3.2em] leading-[1.1] font-bold mb-8 text-center capitalize">
-          מגדלי האינוי
+          מגדלי האנוי
         </h1>
 
         {/* אזור הטבעת המורמת */}
