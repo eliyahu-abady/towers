@@ -1,0 +1,1170 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.firebase/hosting.ZGlzdA.cache
+.firebaserc
+.gitignore
+eslint.config.js
+firebase.json
+index.html
+package.json
+public/logo.png
+public/logo.svg
+README.md
+src/App.jsx
+src/assets/medal.svg
+src/components/AuthForm.jsx
+src/components/Column.jsx
+src/components/MenuItem.jsx
+src/components/Ring.jsx
+src/components/ValidEmail.jsx
+src/config/firebase.js
+src/context/AuthContext.jsx
+src/index.css
+src/main.jsx
+src/pages/Auth.jsx
+src/pages/Game.jsx
+src/pages/Instructions.jsx
+src/pages/Menu.jsx
+src/pages/Records.jsx
+src/services/authService.js
+src/services/firestoremanager.js
+vite.config.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="public/logo.svg">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="301pt" height="349pt" viewBox="0 0 301 349" preserveAspectRatio="xMidYMid meet">
+<g fill="#4B4640FF">
+<path d="M 168.00 253.93 L 168.00 173.87 L 184.93 174.18 C 204.23 174.54 206.30 175.28 208.91 182.67 C 210.19 186.30 210.15 187.03 208.41 190.58 C 207.22 193.02 205.17 195.16 203.00 196.25 L 199.50 198.00 L 202.62 198.00 C 208.55 198.00 212.24 199.30 215.47 202.53 C 221.10 208.17 221.07 215.86 215.39 221.54 C 213.57 223.36 211.05 225.05 209.79 225.29 C 208.53 225.53 209.54 225.79 212.04 225.86 C 218.93 226.07 225.05 229.61 227.75 234.96 C 228.99 237.42 230.00 240.58 230.00 242.00 C 230.00 246.95 225.84 253.33 221.04 255.75 L 216.58 258.00 L 220.54 258.08 C 233.20 258.32 242.17 269.19 239.01 280.48 C 237.57 285.60 232.73 290.87 227.81 292.65 L 224.50 293.85 L 228.50 293.93 C 241.07 294.19 249.99 302.52 249.99 314.00 C 249.99 322.28 243.87 330.83 236.48 332.88 C 233.96 333.58 220.69 333.99 200.25 333.99 L 168.00 334.00 L 168.00 253.93Z"/></g>
+<g fill="#4B4640FF">
+<path d="M 62.50 332.50 C 49.56 327.92 45.89 309.87 55.88 299.88 C 59.75 296.02 64.87 294.06 71.50 293.93 L 75.50 293.85 L 72.19 292.65 C 70.37 291.99 67.39 289.99 65.57 288.21 C 54.11 277.01 62.69 258.40 79.46 258.08 L 83.42 258.00 L 78.96 255.75 C 74.16 253.33 70.00 246.95 70.00 242.00 C 70.00 240.58 71.01 237.42 72.25 234.96 C 74.95 229.61 81.07 226.07 87.96 225.86 C 90.46 225.79 91.47 225.53 90.21 225.29 C 86.92 224.66 81.40 218.77 80.67 215.11 C 78.73 205.40 85.94 198.00 97.38 198.00 L 100.50 198.00 L 97.00 196.25 C 94.83 195.16 92.78 193.02 91.59 190.58 C 89.85 187.03 89.81 186.30 91.09 182.67 C 93.69 175.32 95.83 174.54 114.57 174.18 L 131.00 173.87 L 131.00 253.93 L 131.00 334.00 L 98.75 333.96 C 73.59 333.92 65.62 333.60 62.50 332.50Z"/></g>
+<g fill="#4C0000FF">
+<path d="M 131.00 254.00 L 131.00 174.00 L 149.50 174.00 L 168.00 174.00 L 168.00 254.00 L 168.00 334.00 L 149.50 334.00 L 131.00 334.00 L 131.00 254.00Z"/></g>
+<g fill="#FF0000FF">
+<path d="M 131.00 116.50 L 131.00 59.00 L 149.50 59.00 L 168.00 59.00 L 168.00 116.50 L 168.00 174.00 L 149.50 174.00 L 131.00 174.00 L 131.00 116.50Z"/></g>
+</svg>
+</file>
+
+<file path="src/assets/medal.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-medal-icon lucide-medal"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/></svg>
+</file>
+
+<file path="src/components/AuthForm.jsx">
+import { useState } from "react";
+
+const AuthForm = ({ title, buttonText, onSubmit, isRegister = false }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [nickName, setNickName] = useState("");
+
+  const inputStyles =
+    "w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:border-[#646cff] focus:ring-1 focus:ring-[#646cff] bg-white text-black";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isRegister) {
+      onSubmit(email, password, nickName);
+    } else {
+      onSubmit(email, password);
+    }
+    // איפוס השדות לאחר שליחה מוצלחת
+    setEmail("");
+    setPassword("");
+    setNickName("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="mb-6">
+      <h3 className="text-lg font-bold mb-4 border-b border-black/10 pb-2">
+        {title}
+      </h3>
+      {isRegister && (
+        <input
+          className={inputStyles}
+          name="nickName"
+          type="text"
+          placeholder="שם משתמש"
+          autoComplete="nickName"
+          required
+          value={nickName} // ערך נשלט
+          onChange={(e) => setNickName(e.target.value)} // עדכון הסטייט
+        />
+      )}
+      <input
+        className={inputStyles}
+        name="email"
+        type="email"
+        placeholder="אימייל"
+        autoComplete="username"
+        required
+        value={email} // ערך נשלט
+        onChange={(e) => setEmail(e.target.value)} // עדכון הסטייט
+      />
+      <input
+        className={inputStyles}
+        name="password"
+        type="password"
+        placeholder="סיסמה"
+        autoComplete="current-password"
+        required
+        value={password} // ערך נשלט
+        onChange={(e) => setPassword(e.target.value)} // עדכון הסטייט
+      />
+
+      <button
+        type="submit"
+        className="w-full px-4 py-2 bg-[#1a1a1a] text-white rounded hover:bg-gray-800 transition-colors border border-transparent cursor-pointer"
+      >
+        {buttonText}
+      </button>
+    </form>
+  );
+};
+
+export default AuthForm;
+</file>
+
+<file path="src/components/Column.jsx">
+import Ring from "./Ring";
+
+const Column = ({ arrayData, index: indexColumn, color, onColumnClick }) => {
+  return (
+    <button
+      className="relative flex flex-col justify-end items-center h-[250px] sm:h-[350px] w-full max-w-[200px] mx-1 sm:mx-4 border border-transparent hover:border-black bg-[#faebd7] p-0 transition-colors focus:outline-none"
+      onClick={() => onColumnClick(indexColumn)}
+    >
+      <div
+        className="absolute bottom-0 h-[220px] sm:h-[300px] w-[20px] sm:w-[30px] z-0"
+        style={{ backgroundColor: color }}
+      ></div>
+      {arrayData.map((ring, indexRing) => (
+        <Ring key={indexRing} level={ring} />
+      ))}
+    </button>
+  );
+};
+
+export default Column;
+</file>
+
+<file path="src/components/MenuItem.jsx">
+const MenuItem = ({ page, name, setScreen }) => (
+  <li className="w-full list-none">
+    <button
+      onClick={() => setScreen(page)}
+      className="h-[60px] w-full rounded-[50px] my-4 border border-black bg-white hover:bg-black hover:text-white transition-all text-lg font-medium cursor-pointer"
+    >
+      {name}
+    </button>
+  </li>
+);
+
+export default MenuItem;
+</file>
+
+<file path="src/components/Ring.jsx">
+const Ring = ({ level }) => {
+  return (
+    <div
+      className="flex items-center justify-center bg-black/70 text-white rounded-[15px] w-[var(--lv)] md:w-[calc(var(--lv)*2)] z-10 shrink-0 aspect-[5/1]"
+      style={{ "--lv": `${40 + level * 8}px` }}
+    >
+      <p className="m-0">{level}</p>
+    </div>
+  );
+};
+
+export default Ring;
+</file>
+
+<file path="src/components/ValidEmail.jsx">
+import { resendVerificationEmail, logOutUser } from "../services/authService";
+import { useState } from "react";
+
+const ValidEmail = () => {
+  const [error, setError] = useState("");
+
+  const handleSendEmail = async () => {
+    try {
+      await resendVerificationEmail();
+      setError("");
+    } catch (err) {
+      if (err.code === "auth/too-many-requests") {
+        setError("נשלחו יותר מדי בקשות. אנא המתן לפני שליחת בקשות נוספות.");
+      } else {
+        setError("אירעה שגיאה בשליחת המייל. נסה שוב מאוחר יותר.");
+      }
+    }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await logOutUser();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <div className="max-w-md mx-auto my-8 overflow-hidden bg-white border border-slate-200 rounded-2xl shadow-sm">
+      {/* Header עם צבע עדין */}
+      <div className="bg-blue-50 p-6 text-center">
+        <div className="inline-flex items-center justify-center w-12 h-12 mb-4 bg-blue-100 rounded-full">
+          <svg
+            className="w-6 h-6 text-blue-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
+          </svg>
+        </div>
+        <h3 className="text-xl font-bold text-slate-800">אימות כתובת המייל</h3>
+      </div>
+
+      <div className="p-6">
+        {error && (
+          <div className="mb-4 p-3 bg-red-50 border-r-4 border-red-500 text-red-700 text-sm rounded">
+            {error}
+          </div>
+        )}
+
+        <div className="space-y-3 text-center text-slate-600">
+          <p className="leading-relaxed">
+            יש לאמת את חשבון המייל שלך כדי להיכנס לחשבון. <br />
+            <strong>שים לב:</strong> המיילים עשויים להגיע לספאם או לתיקיית
+            "קידומי מכירות".
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3">
+          <button
+            onClick={handleSendEmail}
+            className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md shadow-blue-100 transition-all active:scale-95 cursor-pointer"
+          >
+            שלח מייל אימות שוב
+          </button>
+
+          <button
+            onClick={() => window.location.reload()}
+            className="w-full py-3 px-4 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold rounded-xl transition-all cursor-pointer"
+          >
+            אימתתי, תן לי להיכנס
+          </button>
+        </div>
+
+        <button
+          onClick={handleSignOut}
+          className="w-full mt-6 text-sm font-medium text-slate-400 hover:text-red-500 transition-colors underline underline-offset-4 cursor-pointer"
+        >
+          התנתקות מהחשבון
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default ValidEmail;
+</file>
+
+<file path="src/context/AuthContext.jsx">
+import { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "../config/firebase";
+import { onAuthStateChanged, reload } from "firebase/auth";
+
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        await reload(user);
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => {
+  const auth = useContext(AuthContext);
+  if (!auth) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return auth;
+};
+</file>
+
+<file path="src/pages/Auth.jsx">
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext.jsx";
+import { signUpUser, signInUser, logOutUser } from "../services/authService.js";
+import { getAuthErrorMessage } from "../services/authService.js";
+import ValidEmail from "../components/ValidEmail.jsx";
+import AuthForm from "../components/AuthForm.jsx";
+
+// קומפוננטת הטופס עם Inputs נשלטים
+
+const Auth = () => {
+  const [error, setError] = useState("");
+  const { user } = useAuth();
+
+  // הפונקציות מקבלות כעת את הערכים ישירות מהטופס
+  const handleSignUp = async (email, password, nickName) => {
+    setError("");
+    try {
+      await signUpUser(email, password, nickName);
+    } catch (err) {
+      setError(getAuthErrorMessage(err.code));
+    }
+  };
+
+  const handleSignIn = async (email, password) => {
+    setError("");
+    try {
+      await signInUser(email, password);
+    } catch (err) {
+      setError(getAuthErrorMessage(err.code));
+    }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await logOutUser();
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+
+  if (user && !user.emailVerified) {
+    return <ValidEmail />;
+  }
+
+  return (
+    <div className="flex flex-col items-center mt-10 w-full max-w-sm mx-auto">
+      <h4 className="text-xl mb-6 font-medium">
+        שלום {user ? user.displayName : "אורח"}
+      </h4>
+
+      <div className="w-full bg-white/40 p-6 rounded-xl shadow-sm border border-black/10">
+        {error && (
+          <p className="text-red-500 mb-4 bg-red-100 p-2 rounded text-sm text-center">
+            {error}
+          </p>
+        )}
+
+        <AuthForm
+          title="הרשמה"
+          buttonText="הירשם"
+          onSubmit={handleSignUp}
+          isRegister={true}
+        />
+        <hr className="border-black/10 my-6" />
+        <AuthForm
+          title="התחברות"
+          buttonText="התחבר"
+          onSubmit={handleSignIn}
+          isRegister={false}
+        />
+      </div>
+
+      {user && (
+        <div className="mt-8 w-full">
+          <button
+            onClick={handleSignOut}
+            className="w-full px-4 py-2 text-black border bg-red-200 border-red-200 rounded hover:bg-red-400 hover:border-red-300 transition-colors cursor-pointer"
+          >
+            התנתק
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Auth;
+</file>
+
+<file path="src/pages/Game.jsx">
+import { useState, useEffect } from "react";
+import { db } from "../config/firebase";
+import { useAuth } from "../context/AuthContext";
+import { doc, setDoc } from "firebase/firestore";
+import { fetchrecords } from "../services/firestoremanager";
+import Column from "../components/Column";
+import Ring from "../components/Ring";
+import medal from "../assets/medal.svg";
+
+function Game() {
+  const [records, setRecords] = useState();
+  const [loading, setLoading] = useState(true);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user) {
+      setRecords({});
+      setLoading(false);
+      return;
+    }
+
+    const fetch = async () => {
+      try {
+        const data = await fetchrecords(user.uid);
+        setRecords(data);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetch();
+  }, [user]);
+
+  if (loading) return <p className="text-4xl text-center mt-10">טוען...</p>;
+
+  return <ActiveGame user={user} initialRecords={records} />;
+}
+
+function ActiveGame({ user, initialRecords }) {
+  const [dataGame, setDataGame] = useState([[1], [2], []]);
+  const [lifting, setLifting] = useState(null);
+  const [level, setLevel] = useState(1);
+  const [timer, setTimer] = useState(0);
+  const [duration, setDuration] = useState([]);
+
+  const lift = (index) => {
+    if (dataGame[index].length === 0) return;
+    const ring = dataGame[index][0];
+    setLifting(ring);
+    setDataGame((prev) => {
+      const newData = [...prev];
+      newData[index] = prev[index].slice(1);
+      return newData;
+    });
+  };
+
+  const place = (index) => {
+    if (lifting < dataGame[index][0] || dataGame[index].length === 0) {
+      setDataGame((prev) => {
+        const newData = [...prev];
+        newData[index] = [lifting, ...prev[index]];
+        return newData;
+      });
+      setLifting(null);
+    }
+  };
+
+  const handleClickColumn = (index) => {
+    if (![0, 1, 2].includes(index)) return;
+    if (lifting) {
+      place(index);
+    } else {
+      lift(index);
+    }
+  };
+
+  const levelComplated = async (level, duration) => {
+    if (!user) {
+      setDuration((prev) => [...prev, { level, timer, recordBroken: false }]);
+      return;
+    }
+    const docRef = doc(db, "users", user.uid);
+    const currentRecord = initialRecords?.[level];
+    if (currentRecord > duration || currentRecord === undefined) {
+      try {
+        await setDoc(
+          docRef,
+          { records: { [level]: duration } },
+          { merge: true },
+        );
+        setDuration((prev) => [...prev, { level, timer, recordBroken: true }]);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      setDuration((prev) => [...prev, { level, timer, recordBroken: false }]);
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const key = parseInt(event.key - 1);
+      handleClickColumn(key);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [dataGame]);
+
+  useEffect(() => {
+    if (upLevel()) {
+      levelComplated(level, timer);
+      const newLevel = level + 1;
+      setLevel(newLevel);
+      setDataGame((prev) => {
+        const newData = [...prev];
+        const targetIndex = dataGame[0].length === 0 ? 0 : 1;
+        newData[targetIndex] = [newLevel + 1];
+        return newData;
+      });
+      setTimer(0);
+    }
+  }, [dataGame]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTimer((prev) => prev + 1);
+    }, 10);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  const displayNum = (num) => {
+    const second = Math.floor(num / 100);
+    const hundredths = String(num % 100).padStart(2, "0");
+    return `${second}.${hundredths}`;
+  };
+
+  function upLevel() {
+    return (
+      ((dataGame[0].length === 0 && dataGame[1].length === 0) ||
+        (dataGame[0].length === 0 && dataGame[2].length === 0) ||
+        (dataGame[1].length === 0 && dataGame[2].length === 0)) &&
+      lifting === null
+    );
+  }
+
+  return (
+    <div className="flex flex-col lg:flex-row w-full max-w-6xl mx-auto items-center lg:items-start gap-8 mt-8 px-4">
+      {/* אזור הטיימר והשיאים */}
+      <div className="w-full lg:w-[200px] flex flex-col items-center lg:items-start order-2 lg:order-1">
+        <div className="text-5xl font-mono mb-4">{displayNum(timer)}</div>
+        <table className="w-full max-w-[300px] text-left text-lg">
+          <tbody>
+            {duration.map((record, index) => (
+              <tr key={index}>
+                <th className="py-1 pr-2 font-normal">רמה {record.level}:</th>
+                <td className="py-1 px-2">{displayNum(record.timer)}</td>
+                <td className="py-1 pl-2">
+                  {record.recordBroken && (
+                    <img
+                      src={medal}
+                      alt="שיא חדש"
+                      className="w-6 h-6 inline-block"
+                    />
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* אזור המשחק המרכזי */}
+      <div
+        dir="ltr"
+        className="flex-1 flex flex-col items-center w-full order-1 lg:order-2"
+      >
+        <h1 className="text-4xl md:text-[3.2em] leading-[1.1] font-bold mb-8 text-center capitalize">
+          מגדלי האינוי
+        </h1>
+
+        {/* אזור הטבעת המורמת */}
+        <div className="h-[100px] w-full flex items-center justify-center mb-4">
+          {lifting && <Ring level={lifting} />}
+        </div>
+
+        {/* העמודות */}
+        <div className="flex justify-center items-end w-full max-w-3xl">
+          {Array(3)
+            .fill(null)
+            .map((_, index) => (
+              <Column
+                key={index}
+                arrayData={dataGame[index]}
+                index={index}
+                color={"red"}
+                onColumnClick={handleClickColumn}
+              />
+            ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Game;
+</file>
+
+<file path="src/pages/Instructions.jsx">
+function About() {
+  return (
+    <div className="flex flex-col items-center mt-10 w-full max-w-2xl mx-auto px-6 text-center">
+      <h2 className="text-2xl mb-6">הוראות</h2>
+      <div className="text-lg leading-relaxed bg-white/40 p-6 rounded-xl border border-black/5 shadow-sm text-right">
+        <p>
+          <strong>חוקי המשחק:</strong>
+        </p>
+        <p>רק טבעת אחת יכולה להיות באוויר. </p>
+        <p>מותר להניח טבעת רק על טבעת גדולה ממנה.</p>
+        <p>צריך לסדר את כל הטבעות בעמודה אחת, ואז עולים רמה ונוספת עוד טבעת.</p>
+        <p>העיקרון פשוט, החכמה לעשות את זה כמה שיותר מהר.</p>
+        <br />
+        <p>
+          לחיצה על עמודה בשביל להרים ממנה טבעת, או להניח בה טבעת במקרה שכבר יש
+          טבעת מורמת.
+        </p>
+        <p>
+          שימו לב: במחשבים מומלץ להשתמש במקשי 1,2,3 על מנת לשלוט בעמודות
+          במהירות.
+        </p>
+        <h5 className="font-bold text-center">בהצלחה!</h5>
+      </div>
+    </div>
+  );
+}
+
+export default About;
+</file>
+
+<file path="src/pages/Menu.jsx">
+import MenuItem from "../components/MenuItem";
+
+function Menu({ setScreen }) {
+  return (
+    <div className="flex flex-col items-center w-full">
+      <header className="mt-10">
+        <h1 className="text-4xl sm:text-5xl md:9xl font-bold uppercase border-b-4 border-black pb-2">
+          מגדלי האינוי
+        </h1>
+      </header>
+
+      <ul className="flex flex-col items-center w-full max-w-xs mt-32 p-0">
+        <MenuItem page="game" name="משחק" setScreen={setScreen} />
+        <MenuItem page="Instructions" name="הוראות" setScreen={setScreen} />
+        <MenuItem page="records" name="שיאים" setScreen={setScreen} />
+        <MenuItem page="auth" name="התחברות" setScreen={setScreen} />
+      </ul>
+    </div>
+  );
+}
+
+export default Menu;
+</file>
+
+<file path="src/pages/Records.jsx">
+import { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
+import { fetchrecords } from "../services/firestoremanager";
+
+function Records() {
+  const [records, setRecords] = useState();
+  const { user } = useAuth();
+
+  const resetRecords = async () => {
+    try {
+      setRecords({});
+      await setDoc(
+        doc(db, "users", user.uid),
+        { records: {} },
+        { merge: true },
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (!user) {
+      setRecords({});
+      return;
+    }
+
+    const fetch = async () => {
+      const data = await fetchrecords(user.uid);
+      setRecords(data);
+    };
+    fetch();
+  }, [user]);
+
+  if (!user)
+    return <p className="text-[40px] mt-20">היכנס כמשתמש על מנת לשמור שיאים</p>;
+  if (!records) return <p className="text-[40px] mt-20">טוען...</p>;
+  if (Object.keys(records).length === 0)
+    return <p className="text-[40px] mt-20">שחק כדי ליצור שיאים</p>;
+
+  return (
+    <div className="flex flex-col items-center mt-10 w-full max-w-lg mx-auto">
+      <h1 className="text-3xl font-bold mb-10">
+        {user ? `השיאים של ${user.displayName}` : ""}
+      </h1>
+
+      <table className="w-full max-w-xs text-xl mb-10 mx-auto">
+        <tbody>
+          {Object.entries(records).map(([key, value]) => (
+            <tr key={key} className="border-b border-black/10 last:border-0">
+              <th className="py-3 text-right pr-4 font-normal">רמה {key}:</th>
+              <td className="py-3 text-left pl-4 font-mono">{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <button
+        onClick={() => resetRecords()}
+        className="px-6 py-2 bg-red-100 text-red-600 border border-red-200 rounded hover:bg-red-200 transition-colors"
+      >
+        אפס שיאים
+      </button>
+    </div>
+  );
+}
+
+export default Records;
+</file>
+
+<file path="src/services/firestoremanager.js">
+import { db } from "../config/firebase.js";
+import { doc, getDoc } from "firebase/firestore";
+
+export async function fetchrecords(uid) {
+  const docRef = doc(db, "users", uid);
+  const datarec = (await getDoc(docRef)).data().records;
+  return datarec;
+}
+</file>
+
+<file path=".firebaserc">
+{
+  "projects": {
+    "default": "towers-18a6a"
+  }
+}
+</file>
+
+<file path="eslint.config.js">
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+])
+</file>
+
+<file path="firebase.json">
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+</file>
+
+<file path="README.md">
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+</file>
+
+<file path="src/main.jsx">
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+</file>
+
+<file path="src/services/authService.js">
+import { auth, db } from "../config/firebase";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+
+export const signUpUser = async (email, password, nickName) => {
+  const cred = await createUserWithEmailAndPassword(auth, email, password);
+  const user = cred.user;
+
+  await updateProfile(user, { displayName: nickName });
+  // שליחת מייל אימות
+  await sendEmailVerification(user);
+
+  // יצירת רשומה ראשונית ב-Firestore
+  await setDoc(doc(db, "users", cred.user.uid), {
+    email: email,
+    nickName: nickName,
+    records: {},
+  });
+
+  return cred.user;
+};
+
+export const signInUser = async (email, password) => {
+  const cred = await signInWithEmailAndPassword(auth, email, password);
+  return cred.user;
+};
+
+export const logOutUser = async () => {
+  await signOut(auth);
+};
+
+export const resendVerificationEmail = async () => {
+  if (!auth.currentUser) throw new Error("אין משתמש מחובר");
+  await sendEmailVerification(auth.currentUser);
+};
+
+export const getAuthErrorMessage = (errorCode) => {
+  switch (errorCode) {
+    case "auth/email-already-in-use":
+      return "האימייל הזה כבר רשום במערכת. נסה להתחבר.";
+    case "auth/invalid-email":
+      return "כתובת האימייל אינה תקינה.";
+    case "auth/operation-not-allowed":
+      return "התחברות באמצעות אימייל וסיסמה אינה מאופשרת.";
+    case "auth/weak-password":
+      return "הסיסמה חלשה מדי. עליה להכיל לפחות 6 תווים.";
+    case "auth/user-disabled":
+      return "חשבון זה הושבת על ידי מנהל המערכת.";
+    case "auth/user-not-found":
+    case "auth/wrong-password":
+    case "auth/invalid-credential": // בגרסאות חדשות Firebase מאחדת שגיאות אבטחה
+      return "אימייל או סיסמה שגויים.";
+    case "auth/too-many-requests":
+      return "ניסיונות רבים מדי נכשלו. החשבון ננעל זמנית, נסה שוב מאוחר יותר.";
+    case "auth/network-request-failed":
+      return "בעיית תקשורת. בדוק את החיבור לאינטרנט.";
+    default:
+      return "אירעה שגיאה לא צפויה. נסה שוב מאוחר יותר.";
+  }
+};
+</file>
+
+<file path=".firebase/hosting.ZGlzdA.cache">
+logo.svg,1773742435547,7b4ee50f1ead389a171118aa708fad729f9c7bf7ac61d0e42aec3f4d8e506896
+assets/logo-euAzK1eP.svg,1773759322887,7b4ee50f1ead389a171118aa708fad729f9c7bf7ac61d0e42aec3f4d8e506896
+index.html,1773759322887,e45b6a647fa5c632c0e9e756e42e163a80ee861cb6bfa39bde2e735a9d57d92c
+assets/index-DQ2N4Nyj.js,1773759322887,4bcd8729db86d9ef92afc28f41589be52a3a77ee55b5469c0cff3330c987faf5
+assets/index-CD-fz1h6.css,1773759322887,000be088a1117fc925c4399670232d6d870053ee0780d5d7b722f61f4ab45b41
+assets/vendor-hIcM_q8R.js,1773759322889,e422447228d5489b30965e826de7b975cfccdc54ca72cdb9c1c286105285214b
+</file>
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# my gitignore
+
+gemini.jsx
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מגדלי האינוי</title>
+
+    <meta name="description" content="מגדלי האינוי - שחק עכשיו" />
+
+    <meta property="og:type" content="game" />
+    <meta property="og:url" content="https://towers-18a6a.web.app//" />
+    <meta property="og:title" content="מגדלי האינוי" />
+    <meta property="og:description" content="מגדלי האינוי - שחק עכשיו" />
+    <meta property="og:image" content="https://towers-18a6a.web.app/logo.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://towers-18a6a.web.app//" />
+    <meta name="twitter:title" content="מגדלי האינוי" />
+    <meta name="twitter:description" content="מגדלי האינוי - שחק עכשיו" />
+    <meta
+      name="twitter:image"
+      content="https://towers-18a6a.web.app/logo.png"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="src/config/firebase.js">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCYeh9ZXeJdi_Tg-GIzdKbXfEUbEwBd29g",
+  authDomain: "towers-18a6a.firebaseapp.com",
+  projectId: "towers-18a6a",
+  storageBucket: "towers-18a6a.firebasestorage.app",
+  messagingSenderId: "871174058534",
+  appId: "1:871174058534:web:8cfd2d849b368d7f8e6ce7"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app)
+const db = getFirestore(app)
+export {auth, db}
+</file>
+
+<file path="src/index.css">
+@import "tailwindcss";
+</file>
+
+<file path="vite.config.js">
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return "vendor";
+          }
+        },
+      },
+    },
+  },
+});
+</file>
+
+<file path="package.json">
+{
+  "name": "towers",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "firebase": "^12.7.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "baseline-browser-mapping": "^2.10.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.2.4"
+  }
+}
+</file>
+
+<file path="src/App.jsx">
+import Menu from "./pages/Menu";
+import Game from "./pages/Game";
+import Instructions from "./pages/Instructions";
+import Records from "./pages/Records";
+import Auth from "./pages/Auth";
+import { AuthProvider } from "./context/AuthContext";
+import { useState } from "react";
+import "./index.css";
+
+function App() {
+  const [screen, setScreen] = useState("menu");
+
+  const renderPage = () => {
+    switch (screen) {
+      case "menu":
+        return <Menu setScreen={(page) => setScreen(page)} />;
+      case "game":
+        return <Game />;
+      case "Instructions":
+        return <Instructions />;
+      case "records":
+        return <Records />;
+      case "auth":
+        return <Auth />;
+      default:
+        return <div>הדף לא נמצא</div>;
+    }
+  };
+
+  return (
+    <AuthProvider>
+      <div className="min-h-screen bg-[#faebd7] text-[#242424] flex flex-col items-center w-full p-4 md:p-8 font-sans transition-colors duration-300">
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+          {renderPage()}
+        </div>
+        {screen !== "menu" && (
+          <button
+            className="fixed bottom-6 right-6 md:bottom-20 md:right-20 z-50 flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gray-800 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/50 cursor-pointer"
+            onClick={() => setScreen("menu")}
+          >
+            <span className="text-xl leading-none">&rarr;</span>
+            ראשי
+          </button>
+        )}
+      </div>
+    </AuthProvider>
+  );
+}
+
+export default App;
+</file>
+
+</files>

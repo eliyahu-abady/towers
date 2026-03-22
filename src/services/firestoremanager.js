@@ -1,4 +1,4 @@
-import { db } from "./config/firebase.js";
+import { db } from "../config/firebase.js";
 import { doc, getDoc } from "firebase/firestore";
 
 export async function fetchrecords(uid) {

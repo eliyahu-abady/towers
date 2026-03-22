@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../authcontext";
+import { useAuth } from "../context/AuthContext";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../config/firebase";
-import { fetchrecords } from "../../firestoremanager";
+import { db } from "../config/firebase";
+import { fetchrecords } from "../services/firestoremanager";
 
 function Records() {
   const [records, setRecords] = useState();

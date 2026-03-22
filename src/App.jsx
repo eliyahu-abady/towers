@@ -1,11 +1,11 @@
-import Menu from "./components/pages/menu";
-import Game from "./components/pages/game";
-import Instructions from "./components/pages/Instructions";
-import Records from "./components/pages/records";
-import Auth from "./components/pages/auth";
-import { AuthProvider } from "./components/authcontext";
+import Menu from "./pages/Menu";
+import Game from "./pages/Game";
+import Instructions from "./pages/Instructions";
+import Records from "./pages/Records";
+import Auth from "./pages/Auth";
+import { AuthProvider } from "./context/AuthContext";
 import { useState } from "react";
-import "./App.css";
+import "./index.css";
 
 function App() {
   const [screen, setScreen] = useState("menu");
@@ -35,7 +35,7 @@ function App() {
         </div>
         {screen !== "menu" && (
           <button
-            className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gray-800 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/50 cursor-pointer"
+            className="fixed bottom-6 right-6 md:bottom-20 md:right-20 z-50 flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gray-800 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/50 cursor-pointer"
             onClick={() => setScreen("menu")}
           >
             <span className="text-xl leading-none">&rarr;</span>

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { db } from "../../config/firebase";
-import { useAuth } from "../authcontext";
+import { db } from "../config/firebase";
+import { useAuth } from "../context/AuthContext";
 import { doc, setDoc } from "firebase/firestore";
-import { fetchrecords } from "../../firestoremanager";
-import medal from "../icons/medal.svg";
+import { fetchrecords } from "../services/firestoremanager";
+import Column from "../components/Column";
+import Ring from "../components/Ring";
+import medal from "../assets/medal.svg";
 
 function Game() {
   const [records, setRecords] = useState();
@@ -33,34 +35,6 @@ function Game() {
   if (loading) return <p className="text-4xl text-center mt-10">טוען...</p>;
 
   return <ActiveGame user={user} initialRecords={records} />;
-}
-
-function Ring({ level }) {
-  return (
-    <div
-      className="flex items-center justify-center bg-black/70 text-white rounded-[15px] w-[var(--lv)] md:w-[calc(var(--lv)*2)] z-10 shrink-0 aspect-[5/1]"
-      style={{ "--lv": `${50 + level * 10}px` }}
-    >
-      <p className="m-0">{level}</p>
-    </div>
-  );
-}
-
-function Column({ arrayData, index: indexColumn, color, onColumnClick }) {
-  return (
-    <button
-      className="relative flex flex-col justify-end items-center h-[250px] sm:h-[350px] w-full max-w-[200px] mx-1 sm:mx-4 border border-transparent hover:border-black bg-[#faebd7] p-0 transition-colors focus:outline-none"
-      onClick={() => onColumnClick(indexColumn)}
-    >
-      <div
-        className="absolute bottom-0 h-[220px] sm:h-[300px] w-[20px] sm:w-[30px] z-0"
-        style={{ backgroundColor: color }}
-      ></div>
-      {arrayData.map((ring, indexRing) => (
-        <Ring key={indexRing} level={ring} />
-      ))}
-    </button>
-  );
 }
 
 function ActiveGame({ user, initialRecords }) {
