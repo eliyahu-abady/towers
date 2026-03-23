@@ -151,9 +151,9 @@ function ActiveGame({ user, initialRecords }) {
   return (
     <div className="flex flex-col lg:flex-row w-full max-w-6xl mx-auto items-center lg:items-start gap-8 mt-8 px-4">
       {/* אזור הטיימר והשיאים */}
-      <div className="w-full lg:w-[200px] flex flex-col items-center lg:items-start order-2 lg:order-1">
+      <div className="w-full lg:w-50 flex flex-col items-center lg:items-start order-2 lg:order-1">
         <div className="text-5xl font-mono mb-4">{displayNum(timer)}</div>
-        <table className="w-full max-w-[300px] text-left text-lg">
+        <table className="w-full max-w-75 text-left text-lg">
           <tbody>
             {duration.map((record, index) => (
               <tr key={index}>
@@ -184,7 +184,7 @@ function ActiveGame({ user, initialRecords }) {
         </h1>
 
         {/* אזור הטבעת המורמת */}
-        <div className="h-[100px] w-full flex items-center justify-center mb-4">
+        <div className="h-25 w-full flex items-center justify-center mb-4">
           {lifting && <Ring level={lifting} />}
         </div>
 
